@@ -67,7 +67,22 @@ public void Suma_Matrices_Ralas(Cls_Matriz_Rala matriz1,Cls_Matriz_Rala matriz2 
 	 * Pre Cond:Ambas matrices deben estar creadas y cargadas previamente 
 	 * Pos Cond:Devuelve la suma de dos matrices ralas
 	 */
-	
+	Cls_Matriz_Rala matriz_aux =new Cls_Matriz_Rala(matriz1.getNroFilas(),matriz1.getNroColumnas());
+	matriz_aux=matriz1;
+	if(matriz1.getDimension_Matriz() != matriz2.getDimension_Matriz()){//Verifico la condicion de que ambas matrices tienen la misma dimension
+		System.out.println("ERROR..Las Matrices son de dimenciones Distintas,No es posible realizar la suma ");}
+	else {
+		for (int i=0;i<getNroFilas();i++){//ciclo para recorrer las filas de las matrices
+			for (int j=0;j<getNroColumnas();j++){//ciclo para recorrer las columnas de las matrices
+			//como no alamaceno el valor 0 en la matriz ,para no ocupar memoria ,realizo preguntas cuando quiero sumar ceros con otros elementos
+					if(matriz1.devuelve(i,j)==null && matriz2.devuelve(i,j)!=null){matriz_aux.actualiza(matriz2.devuelve(i,j),i,j);}
+					else if(matriz1.devuelve(i,j)!=null && matriz2.devuelve(i,j)==null){matriz_aux.actualiza(matriz1.devuelve(i,j),i,j);}
+					else if(matriz1.devuelve(i,j)==null && matriz2.devuelve(i,j)==null){matriz_aux.actualiza(null,i,j);}
+					else{matriz_aux.actualiza((int)matriz1.devuelve(i,j)+(int)matriz2.devuelve(i,j),i,j);}
+			}}
+	matriz_aux.Mostrar_Matriz_Rala();//Despues de Realizar la suma de las matrices ,muestro la matriz suma} 
+	}
+}
 	
 }}
 
