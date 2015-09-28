@@ -54,14 +54,11 @@ public boolean Compara_Matrices(Cls_Matriz_Rala matriz1,Cls_Matriz_Rala matriz2)
 	if(matriz1.getDimension_Matriz()==matriz2.getDimension_Matriz()){//Verifico la condicion de que ambas matrices tienen la misma dimension
 		for (int i=0;i<getNroFilas();i++){//ciclo para recorrer las filas de las matrices
 			for (int j=0;j<getNroColumnas();j++){//ciclo para recorrer las columnas de las matrices
-				if(matriz1.devuelve(i,j)==null && matriz2.devuelve(i,j)==null){}//Si ambos valores de la posicion(i,j) son null los tengo en cuenta como si fuera un cero almacenado en las matrices
-				   else if((matriz1.devuelve(i,j).equals(matriz2.devuelve(i,j)))){}//comparo los objetos de ambas matices ,devuelve True sin son iguales caso contratio False
-				else{return false;}//retoro FALSE si en alguna comparacion los elementos de la posiscion(i,j) de ambas matrices no son iguales
+				if(matriz1.devuelve(i,j)!=matriz2.devuelve(i,j)){return false;}//Comparo elemento a elemento de ambas matrices de la misma posicion ,si alguna comparacion no es igual retorno FALSE
 			}
 		}
-	return true;}//retorna TRUE si al recorrer las dos matrices de dimeciones iguales y elementos iguales en possiciones (i,j)
-	else{return false;}}//retorna FALSE si no cumple la codicion de que ambas matrices tienen la misma dimension
-
+	return true;}//retorna TRUE si al recorrer las dos matrices de dimenciones iguales y elementos  iguales en possiciones (i,j)
+	else{return false;}}//retorna FALSE si no cumple la codicion de que ambas matrices tienen que ser de la  misma dimension
 
 public void Suma_Matrices_Ralas(Cls_Matriz_Rala matriz1,Cls_Matriz_Rala matriz2 ){
 	/**
